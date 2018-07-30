@@ -1,0 +1,18 @@
+/* CSS Styles */
+
+
+.account-col h1 {
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.form-group {
+    padding-bottom: 7px;
+    margin: 0px 0 0 0;
+}
+
+.btn-primary{
+    background-color: #01a8fe;
+}
