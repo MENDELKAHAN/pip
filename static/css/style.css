@@ -8,11 +8,15 @@
     margin-bottom: 25px;
 }
 
-.form-group {
+.form-group{
     padding-bottom: 7px;
     margin: 0px 0 0 0;
 }
 
 .btn-primary{
     background-color: #01a8fe;
+}
+form{
+	 padding-bottom: 7px;
+    
 }
