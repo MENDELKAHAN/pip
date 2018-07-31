@@ -4,41 +4,42 @@ class Login_model extends Model {
 
 	public function login()
 	{
-		if(isset($_POST)){
+		if(isset($_POST['login'])){
 			$values = $_POST['login'];
-			
-			// test user dose not exists 
 			$user = $this->escapeString($values['user']);
 			$password = $this->escapeString($values['password']);
-			authenticate($user="", $password="");		
+		
+			if($this -> authenticate($user, $password)){
+				$session = Controller::loadHelper("Session_helper");
+				$session->set("logedin", true);
+				echo $session->get('logedin');
+				// Controller::redirect("dashboard");
+			}else{
+				echo "try again";
+				Controller::redirect("dashboard");
+
+
+			}	
 		}
 	}
 
-	public function verify($password, $db_password){
-			return password_verify ($password , $db_password);
-		}	
-
+	// authenticate finds the user and tests the password
     public function authenticate($username="", $password="") {
-
-        $username = self::$database->escape_string($username);
-        $password = self::$database->escape_string($password);
        
-        $sql = "SELECT * FROM   users  WHERE usersname =" . "'". $username ."'";
-        $result_set = self::$database->query($sql);
+        $sql = "SELECT * FROM   users  WHERE username =" . "'". $username ."'";
+        $result_set = $this -> connection ->query($sql);
       
         if($result_set->num_rows > 0){
-           
-            $result_set = self::$database->query($sql);
+            $result_set = $this -> connection ->query($sql);
             $row =  mysqli_fetch_assoc($result_set);
-            if(password_verify ($password , $db_password)){
+
+            if(password_verify ($password , $row['password'])){
                 return true;
             }else{
                 return false;
             }
         }
-
-
-}
+	}
 }
 
 ?>

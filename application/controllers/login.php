@@ -11,8 +11,9 @@ class Login extends Controller {
 	public function login()
 	{
 		 $model = $this-> loadModel("login_model");
-        $model -> login();
+         $model -> login();
 	}
+
     
 }
 

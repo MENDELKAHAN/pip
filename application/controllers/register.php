@@ -6,7 +6,7 @@ class Register extends Controller {
 	{
 		$template = $this->loadView('register');
 		// use config
-		$template->set('url', "http://localhost:8080/pip/");
+		// $template->set('url', "http://localhost:8080/pip/");
 		$template->render();
 	}
 

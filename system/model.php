@@ -2,7 +2,7 @@
 
 class Model {
 
-	private $connection;
+	public $connection;
 
 	public function __construct()
 	{
@@ -45,7 +45,7 @@ class Model {
 	    return date('Y-m-d H:i:s', $val);
 	}
 	
-	public function query($qry)
+	public function select($qry)
 	{
 		$result_set =  $this -> connection -> query($qry);
 

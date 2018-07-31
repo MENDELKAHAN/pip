@@ -4,7 +4,7 @@ class Controller {
 	
 	public function loadModel($name)
 	{
-		require(APP_DIR .'models/'. strtolower($name) .'.php');
+		require_once(APP_DIR .'models/'. strtolower($name) .'.php');
 
 		$model = new $name;
 		return $model;
@@ -23,7 +23,7 @@ class Controller {
 	
 	public function loadHelper($name)
 	{
-		require(APP_DIR .'helpers/'. strtolower($name) .'.php');
+		require_once(APP_DIR .'helpers/'. strtolower($name) .'.php');
 		$helper = new $name;
 		return $helper;
 	}

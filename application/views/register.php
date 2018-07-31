@@ -6,20 +6,17 @@
 				<h1>Register</h1>
 
 
-				<form action="<?php echo $url; ?>register/create" method="post">
+				<form action="<?php echo BASE_URL; ?>register/create" method="post">
 					<div class="form-group">
-						<!-- <label for="user">User</label> -->
-						<input type="text" class="form-control" id="user" aria-describedby="user" placeholder="User Name" name="register[user]">
+						<input type="text" class="form-control" id="user" aria-describedby="user" placeholder="User Name" name="register[user]" required>
 					</div>
 
  					<div class="form-group">
-						<!-- <label for="password">Password</label> -->
-						<input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password" name="register[password]">
+						<input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password" name="register[password]" required>
 					</div>
 
 					<div class="form-group">
-						<!-- <label for="password">Password</label> -->
-						<input type="password" class="form-control" id="password_2" aria-describedby="password" placeholder="Repeat Password" name="register[password_2]">
+						<input type="password" class="form-control" id="password_2" aria-describedby="password" placeholder="Repeat Password" name="register[password_2]" required>
 					</div>
 
 				  <button type="submit" id="submit" class="btn btn-primary btn-block" name="register['submit']">Submit</button>
