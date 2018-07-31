@@ -10,16 +10,18 @@ class Login_model extends Model {
 			$password = $this->escapeString($values['password']);
 		
 			if($this -> authenticate($user, $password)){
-				$session = Controller::loadHelper("Session_helper");
-				$session->set("logedin", true);
-				echo $session->get('logedin');
-				// Controller::redirect("dashboard");
-			}else{
-				echo "try again";
-				Controller::redirect("dashboard");
 
 
-			}	
+         	$_SESSION["logedin"] = true;
+         	header("location: ../dashboard");
+         	// $this-> redirect("dashboard");
+         }else{
+         	header("location: ../login");
+			// $this-> redirect("login");
+
+         }
+
+		
 		}
 	}
 

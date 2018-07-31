@@ -13,7 +13,7 @@ class Register_model extends Model {
 			$password_2 = $this->escapeString($values['password_2']);
 
 
-			if(! test_user($user)){
+			if(! $this->test_user($user)){
 				return false;
 			}
 						
@@ -28,8 +28,8 @@ class Register_model extends Model {
 			$result = $this->insert($sql);
 			
 			if($result){
-			// 	session login
-			// 	header dashbourd
+				$_SESSION["logedin"] = true;
+         		header("location: ../dashboard");
 			}
 			
 		}

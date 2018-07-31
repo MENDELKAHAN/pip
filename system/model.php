@@ -7,11 +7,7 @@ class Model {
 	public function __construct()
 	{
 		global $config;
-		
-		$this->connection = mysqli_connect($config['db_host'], $config['db_username'], $config['db_password'], $config['db_name'])
-		or die('MySQL Error: '. mysql_error());
-
-		// mysqli::select_db($config['db_name'], $this->connection);
+		$this->connection = new mysqli($config['db_host'], $config['db_username'], $config['db_password'], $config['db_name']);
 	}
 
 	public function escapeString($string)
