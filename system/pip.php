@@ -30,6 +30,7 @@ function pip()
 	} else {
         $controller = $config['error_controller'];
         require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        
 	}
     
     // Check the action exists

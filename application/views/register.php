@@ -6,24 +6,25 @@
 				<h1>Register</h1>
 
 
-				<form action="">
+				<form action="register/create" method="post">
 					<div class="form-group">
 						<!-- <label for="user">User</label> -->
-						<input type="text" class="form-control" id="user" aria-describedby="user" placeholder="User Name">
+						<input type="text" class="form-control" id="user" aria-describedby="user" placeholder="User Name" name="register[user]">
 					</div>
 
  					<div class="form-group">
 						<!-- <label for="password">Password</label> -->
-						<input type="password" class="form-control" id="password" aria-describedby="user" placeholder="Password">
+						<input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password" name="register[password]">
 					</div>
 
 					<div class="form-group">
 						<!-- <label for="password">Password</label> -->
-						<input type="password" class="form-control" id="password" aria-describedby="user" placeholder="Password">
+						<input type="password" class="form-control" id="password_2" aria-describedby="password" placeholder="Repeat Password" name="register[password_2]">
 					</div>
 
-				  <button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
+				  <button type="submit" id="submit" class="btn btn-primary btn-block" name="register['submit']">>Submit</button>
 				</form>
+				
 				<a href="login" class="btn register btn-block">Have An Account</a>
 						
         		
