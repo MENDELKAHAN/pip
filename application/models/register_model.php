@@ -7,25 +7,27 @@ class Register_model extends Model {
 		if(isset($_POST)){
 			$values = $_POST['register'];
 			
-			// test iser dose not excist 
+			// test user dose not exists 
 			$user = $this->escapeString($values['user']);
-			$result = $this->query('SELECT * FROM users WHERE user="'. $user .'"');
+			$password = $this->escapeString($values['password']);
+			$password_2 = $this->escapeString($values['password_2']);
 
+			$result = $this->query('SELECT * FROM users WHERE username="'. $user .'"');
+			if(!empty($result)){
+				// user exists	
+				return false;
+			}
+			
 			// test passwords match
+			if($password != $password_2){
+				// passwords don't match
+				return false;
+			}
 
-
-		// $result = $this->query('SELECT * FROM something WHERE id="'. $id .'"');
-		// return $result;
-
-		
-		// public static function  create_password($input){
-		// 		return  password_hash ($input , PASSWORD_DEFAULT);
-		// }
-
-		// public function verify($password, $db_password){
-		// 	return password_verify ($password , $db_password);
-		// }	
-
+			$password_hashed = password_hash ($password, PASSWORD_DEFAULT);
+			$sql = "INSERT INTO `users`(`username`, `password`) VALUES ('$user', '$password_hashed')";
+			$result = $this->insert($sql);
+			
 
 			// inset new user
 			// return message
@@ -34,9 +36,6 @@ class Register_model extends Model {
 		}
 		
 
-		// $id = $this->escapeString($id);
-		// $result = $this->query('SELECT * FROM something WHERE id="'. $id .'"');
-		// return $result;
 	}
 
 }

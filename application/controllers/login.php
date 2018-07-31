@@ -7,6 +7,12 @@ class Login extends Controller {
 		$template = $this->loadView('login');
 		$template->render();
 	}
+
+	public function login()
+	{
+		 $model = $this-> loadModel("login_model");
+        $model -> login();
+	}
     
 }
 

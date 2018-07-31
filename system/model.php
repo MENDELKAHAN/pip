@@ -48,6 +48,7 @@ class Model {
 	public function query($qry)
 	{
 		$result_set =  $this -> connection -> query($qry);
+
 		// mysql_query($qry) or die('MySQL Error: '. mysql_error());
 		$resultObjects = array();
 
@@ -56,6 +57,16 @@ class Model {
         }
            return $resultObjects;
     }
+
+    public function insert($qry)
+	{
+		if ($this -> connection -> query($qry))
+		{
+			return $this -> connection -> insert_id;
+		}
+			return false;
+
+	}
 
 	public function execute($qry)
 	{

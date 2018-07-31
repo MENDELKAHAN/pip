@@ -6,7 +6,7 @@
 				<h1>Register</h1>
 
 
-				<form action="register/create" method="post">
+				<form action="<?php echo $url; ?>register/create" method="post">
 					<div class="form-group">
 						<!-- <label for="user">User</label> -->
 						<input type="text" class="form-control" id="user" aria-describedby="user" placeholder="User Name" name="register[user]">
@@ -22,7 +22,7 @@
 						<input type="password" class="form-control" id="password_2" aria-describedby="password" placeholder="Repeat Password" name="register[password_2]">
 					</div>
 
-				  <button type="submit" id="submit" class="btn btn-primary btn-block" name="register['submit']">>Submit</button>
+				  <button type="submit" id="submit" class="btn btn-primary btn-block" name="register['submit']">Submit</button>
 				</form>
 				
 				<a href="login" class="btn register btn-block">Have An Account</a>
