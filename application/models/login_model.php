@@ -23,10 +23,10 @@ class Login_model extends Model {
     public function authenticate($username="", $password="") {
        
         $sql = "SELECT * FROM   users  WHERE username =" . "'". $username ."'";
-        $result_set = $this -> connection ->query($sql);
+        $result_set = $this -> execute($sql);
       
         if($result_set->num_rows > 0){
-            $result_set = $this -> connection ->query($sql);
+            $result_set = $this -> execute($sql);
             $row =  mysqli_fetch_assoc($result_set);
 
             if(password_verify ($password , $row['password'])){
