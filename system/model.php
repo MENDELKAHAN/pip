@@ -2,7 +2,7 @@
 
 class Model {
 
-	public $connection;
+	protected $connection;
 
 	public function __construct()
 	{
@@ -54,6 +54,7 @@ class Model {
            return $resultObjects;
     }
 
+	// insert in db returns inserted id if successfully inserted
     public function insert($qry)
 	{
 		if ($this -> connection -> query($qry))
@@ -66,7 +67,7 @@ class Model {
 
 	public function execute($qry)
 	{
-		$exec = mysql_query($qry) or die('MySQL Error: '. mysql_error());
+		$exec =  $this -> connection -> query($qry) or die('MySQL Error: '. mysql_error());
 		return $exec;
 	}
     

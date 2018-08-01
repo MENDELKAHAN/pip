@@ -10,15 +10,9 @@ class Login_model extends Model {
 			$password = $this->escapeString($values['password']);
 		
 			if($this -> authenticate($user, $password)){
-
-
-         	$_SESSION["logedin"] = true;
-         	header("location: ../dashboard");
-         	// $this-> redirect("dashboard");
+                return true;
          }else{
-         	header("location: ../login");
-			// $this-> redirect("login");
-
+            return false;
          }
 
 		
